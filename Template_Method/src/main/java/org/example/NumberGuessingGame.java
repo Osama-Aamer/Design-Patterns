@@ -3,17 +3,6 @@ package org.example;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * Number Guessing Game — concrete implementation of the Game framework.
- *
- * Rules:
- *  - A secret number between 1 and MAX is chosen at the start.
- *  - Players take turns guessing the number.
- *  - After each guess the game hints "Too low", "Too high", or "Correct!".
- *  - The first player to guess correctly wins.
- *  - Each player has at most MAX_ATTEMPTS attempts.
- *    If all players exhaust their attempts, the game ends and the number is revealed.
- */
 public class NumberGuessingGame extends Game {
 
     private static final int MIN          = 1;
