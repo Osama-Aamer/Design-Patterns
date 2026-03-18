@@ -32,8 +32,7 @@ public class HeapSort implements SortingStrategy {
     }
 
     /**
-     * Ensures the subtree rooted at index {code root} satisfies the max-heap
-     * property within a heap of the given {code size}.
+     * Maintains maxheap property by comparing parent nodes with children and swapping if necessarry
      */
     private void heapify(int[] array, int size, int root) {
         int largest = root;
