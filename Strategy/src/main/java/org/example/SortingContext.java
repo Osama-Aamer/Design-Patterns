@@ -1,9 +1,7 @@
 package org.example;
 
 /**
- * Context class for the Strategy pattern.
  * Holds a reference to a SortingStrategy and delegates the sorting task to it.
- * The strategy can be swapped at any time via setStrategy().
  */
 public class SortingContext {
 

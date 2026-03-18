@@ -24,7 +24,7 @@ public class HeapSort implements SortingStrategy {
 
         // Step 2: Repeatedly extract the maximum (root) and restore the heap.
         for (int i = n - 1; i > 0; i--) {
-            // Move the current root (maximum) to the end.
+            // Moves the current root (maximum) to the end.
             int temp = array[0];
             array[0] = array[i];
             array[i] = temp;
@@ -35,8 +35,8 @@ public class HeapSort implements SortingStrategy {
     }
 
     /**
-     * Ensures the subtree rooted at index {@code root} satisfies the max-heap
-     * property within a heap of the given {@code size}.
+     * Ensures the subtree rooted at index {code root} satisfies the max-heap
+     * property within a heap of the given {code size}.
      */
     private void heapify(int[] array, int size, int root) {
         int largest = root;
