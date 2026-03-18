@@ -1,9 +1,6 @@
 package org.example;
 
-/**
- * Time Complexity: O(n log n) in all cases.
- * Space Complexity: O(n) due to the auxiliary arrays used during merging.
- */
+
 public class MergeSort implements SortingStrategy {
 
     @Override

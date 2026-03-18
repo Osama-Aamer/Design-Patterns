@@ -3,8 +3,7 @@ package org.example;
 import java.util.Random;
 
 /**
- * comparing the performance of
- * three sorting algorithms (Merge Sort, Quick Sort, Heap Sort) on two
+ * comparing the performance on two
  * data sets: a small array (30 elements) and a large array (100 000 elements).
  */
 public class Main {

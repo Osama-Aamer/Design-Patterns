@@ -1,9 +1,6 @@
 package org.example;
 
-/**
- * Time Complexity: O(n log n) average, O(n^2) worst case.
- * Space Complexity: O(log n) due to the recursive call stack.
- */
+
 public class QuickSort implements SortingStrategy {
 
     @Override

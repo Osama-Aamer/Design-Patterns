@@ -1,9 +1,6 @@
 package org.example;
 
-/**
- * Time Complexity: O(n log n) in all cases.
- * Space Complexity: O(1) – sorts in place, no extra memory needed.
- */
+
 public class HeapSort implements SortingStrategy {
 
     @Override
