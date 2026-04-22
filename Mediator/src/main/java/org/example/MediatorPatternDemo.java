@@ -12,23 +12,23 @@ public class MediatorPatternDemo {
         System.out.println("✓ ChatRoom created\n");
 
         System.out.println("STEP 2: Creating Chat Clients (Concrete Colleagues)");
-        ChatClientImpl alice = new ChatClientImpl("Alice", chatRoom);
-        ChatClientImpl bob = new ChatClientImpl("Bob", chatRoom);
-        ChatClientImpl charlie = new ChatClientImpl("Charlie", chatRoom);
+        ChatClientImpl osama = new ChatClientImpl("osama", chatRoom);
+        ChatClientImpl mohammad = new ChatClientImpl("mohammad", chatRoom);
+        ChatClientImpl omar = new ChatClientImpl("omar", chatRoom);
         System.out.println("✓ Three clients created and registered\n");
 
         System.out.println("STEP 3: Sending Messages (Mediator routes them)");
         System.out.println("---");
-        System.out.println("Alice sends: 'Hello Bob, how are you?'");
-        alice.sendMessage("Hello Bob, how are you?", "Bob");
+        System.out.println("osama sends: 'Hello mohammad, how are you?'");
+        osama.sendMessage("Hello mohammad, how are you?", "mohammad");
         System.out.println();
 
-        System.out.println("Bob sends: 'I'm great, thanks for asking!'");
-        bob.sendMessage("I'm great, thanks for asking!", "Alice");
+        System.out.println("mohammad sends: 'I'm great, thanks for asking!'");
+        mohammad.sendMessage("I'm great, thanks for asking!", "osama");
         System.out.println();
 
-        System.out.println("Charlie sends: 'Hi everyone!'");
-        charlie.sendMessage("Hi everyone!", "Alice");
+        System.out.println("omar sends: 'Hi everyone!'");
+        omar.sendMessage("Hi everyone!", "osama");
         System.out.println();
 
         System.out.println("STEP 4: Registered Clients in ChatRoom");
@@ -42,21 +42,12 @@ public class MediatorPatternDemo {
 
         System.out.println("STEP 5: Error Handling - Non-existent Recipient");
         System.out.println("---");
-        System.out.println("Alice sends to 'NonExistent': 'Does this work?'");
-        alice.sendMessage("Does this work?", "NonExistent");
+        System.out.println("Osama sends to 'NonExistent': 'Does this work?'");
+        osama.sendMessage("Does this work?", "NonExistent");
         System.out.println();
 
-        System.out.println("=== KEY INSIGHTS ===");
-        System.out.println("✓ Clients never directly reference each other");
-        System.out.println("✓ All communication goes through ChatRoom mediator");
-        System.out.println("✓ ChatRoom controls the message routing");
-        System.out.println("✓ New clients can be added without modifying existing ones");
-        System.out.println("✓ Loose coupling achieved!\n");
     }
 
-    /**
-     * Main entry point for demo
-     */
     public static void main(String[] args) {
         demonstrateMediator();
     }

@@ -16,9 +16,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        createChatWindow("Alice");
-        createChatWindow("Bob");
-        createChatWindow("Charlie");
+        createChatWindow("osama");
+        createChatWindow("mohammad");
+        createChatWindow("omar");
     }
 
     private void createChatWindow(String username) {
