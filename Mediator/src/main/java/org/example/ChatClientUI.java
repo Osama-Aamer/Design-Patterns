@@ -42,13 +42,15 @@ public class ChatClientUI {
         // Create bottom section - input controls
         VBox bottomBox = new VBox(10);
         bottomBox.setPadding(new Insets(10, 0, 0, 0));
-        // Recipient selection
-        HBox recipientBox = new HBox(10);
-        Label recipientLabel = new Label("Send to:");
-        recipientCombo = new ComboBox<>();
-        recipientCombo.setPrefWidth(150);
-        updateRecipientList();
-        recipientBox.getChildren().addAll(recipientLabel, recipientCombo);
+         // Recipient selection
+         HBox recipientBox = new HBox(10);
+         Label recipientLabel = new Label("Send to:");
+         recipientCombo = new ComboBox<>();
+         recipientCombo.setPrefWidth(150);
+         updateRecipientList();
+         // Update recipient list whenever the dropdown is shown
+         recipientCombo.setOnShowing(e -> updateRecipientList());
+         recipientBox.getChildren().addAll(recipientLabel, recipientCombo);
         // Message input
         HBox messageInputBox = new HBox(10);
         Label messageLabel = new Label("Message:");
@@ -77,25 +79,28 @@ public class ChatClientUI {
     public void displayReceivedMessage(String message) {
         messageArea.appendText(message + "\n");
     }
-    private void handleSendMessage() {
-        String message = messageField.getText().trim();
-        String recipient = recipientCombo.getValue();
-        if (message.isEmpty()) {
-            showAlert("Error", "Message cannot be empty!");
-            return;
-        }
-        if (recipient == null || recipient.isEmpty()) {
-            showAlert("Error", "Please select a recipient!");
-            return;
-        }
-        if (recipient.equals(client.getUsername())) {
-            showAlert("Error", "You cannot send a message to yourself!");
-            return;
-        }
-        client.sendMessage(message, recipient);
-        messageArea.appendText("You to " + recipient + ": " + message + "\n");
-        messageField.clear();
-    }
+     private void handleSendMessage() {
+         // Refresh recipient list before sending to ensure all clients are available
+         updateRecipientList();
+
+         String message = messageField.getText().trim();
+         String recipient = recipientCombo.getValue();
+         if (message.isEmpty()) {
+             showAlert("Error", "Message cannot be empty!");
+             return;
+         }
+         if (recipient == null || recipient.isEmpty()) {
+             showAlert("Error", "Please select a recipient!");
+             return;
+         }
+         if (recipient.equals(client.getUsername())) {
+             showAlert("Error", "You cannot send a message to yourself!");
+             return;
+         }
+         client.sendMessage(message, recipient);
+         messageArea.appendText("You to " + recipient + ": " + message + "\n");
+         messageField.clear();
+     }
     private void updateRecipientList() {
         String[] recipients = client.getAvailableRecipients();
         recipientCombo.getItems().clear();
